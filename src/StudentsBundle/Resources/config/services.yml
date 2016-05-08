@@ -1,0 +1,6 @@
+services:
+    routes_helper:
+        class:        StudentsBundle\Helpers\RoutesHelper
+        arguments:    ["@=service('doctrine').getManager()", "@path_generator"]
+    path_generator:
+        class:        StudentsBundle\Helpers\PathGenerator

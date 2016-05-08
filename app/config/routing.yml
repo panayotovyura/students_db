@@ -1,0 +1,4 @@
+students:
+    resource: "@StudentsBundle/Controller/"
+    type:     annotation
+    prefix:   /
