@@ -38,11 +38,9 @@ class PathGenerator
         }
 
         if (in_array($path, $this->currentPaths)) {
-            if ($iterator > 1) {
-                $path = preg_replace('/(\d)+$/', $iterator, $path);
-            } else {
-                $path .= self::SPLIT_SYMBOL . $iterator;
-            }
+            $path = ($iterator > 1) ?
+                preg_replace('/(\d)+$/', $iterator, $path) :
+                self::SPLIT_SYMBOL . $iterator;
 
             return $this->getUniquePath($path, ++$iterator);
         }
