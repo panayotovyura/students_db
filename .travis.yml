@@ -10,6 +10,7 @@ before_script:
   - php bin/console doctrine:schema:create --env=test
   - php bin/console hautelook_alice:doctrine:fixtures:load -n --env=test
   - php bin/console students:generate:routes --env=test
+  - php bin/console students:generate:routes --env=test
 script:
   - phpunit
 after_success:
