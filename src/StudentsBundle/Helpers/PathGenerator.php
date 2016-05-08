@@ -17,11 +17,11 @@ class PathGenerator
      * @param string $name
      * @return string
      */
-    public function generatePath($name)
+    public function generatePath(string $name): string
     {
         $basePath = preg_replace('/\W/', self::SPLIT_SYMBOL, strtolower($name));
         $uniquePath = $this->getUniquePath($basePath);
-        $this->currentPaths[] = $uniquePath;
+        $this->currentPaths[$uniquePath] = true;
         return $uniquePath;
     }
 
@@ -29,15 +29,16 @@ class PathGenerator
      * Get unique path for student
      *
      * @param string $path
+     * @param int $iterator
      * @return string
      */
-    private function getUniquePath($path, $iterator = 1)
+    private function getUniquePath(string $path, int $iterator = 1): string
     {
         if (!$this->currentPaths) {
             return $path;
         }
 
-        if (in_array($path, $this->currentPaths)) {
+        if (isset($path[$this->currentPaths])) {
             $path = ($iterator > 1) ?
                 preg_replace('/(\d)+$/', $iterator, $path) :
                 self::SPLIT_SYMBOL . $iterator;
