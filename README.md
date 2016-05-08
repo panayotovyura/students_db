@@ -15,9 +15,11 @@ Run project:
 
 4. php bin/console hautelook_alice:doctrine:fixtures:load
 
-5. php bin/console assets:install
+5. php bin/console students:generate:routes
 
-6. php bin/console server:run
+6. php bin/console assets:install
+
+7. php bin/console server:run
 
 PhpUnit:
 
@@ -27,7 +29,9 @@ PhpUnit:
 
 3. php bin/console hautelook_alice:doctrine:fixtures:load --env=test
 
-4. ./vendor/bin/phpunit
+4. php bin/console students:generate:routes --env=test
+
+5. ./vendor/bin/phpunit
 
 Analysis Tools:
 
