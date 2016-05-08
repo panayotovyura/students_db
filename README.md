@@ -1,3 +1,5 @@
+<a href="https://travis-ci.org/panayotovyura/students_db"><img src="https://travis-ci.org/panayotovyura/students_db.svg?branch=master"></a>
+
 students_db
 ===========
 
