@@ -8,7 +8,7 @@ use StudentsBundle\Entity\Student;
 
 class RoutesHelper
 {
-    const BATCH_SIZE = 200;
+    const BATCH_SIZE = 5000;
 
     /**
      * @var EntityManager
@@ -31,6 +31,7 @@ class RoutesHelper
      */
     public function generateRoutes()
     {
+        $this->entityManager->getConnection()->getConfiguration()->setSQLLogger(null);
         $query = $this->entityManager
             ->getRepository(Student::class)
             ->getAllStudentsQuery();
